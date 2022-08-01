@@ -17,9 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_photo_camera_white_24dp"
+        android:src="@android:drawable/ic_menu_camera"
         app:layout_anchor="@id/rvAlbums"
-        app:layout_anchorGravity="bottom|right|end"
-        app:layout_behavior="com.title_apps.canalpic.util.ScrollAwareFABBehavior" />
+        app:layout_anchorGravity="bottom|right|end" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

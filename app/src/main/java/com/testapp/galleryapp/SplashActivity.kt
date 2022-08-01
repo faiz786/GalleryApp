@@ -95,7 +95,7 @@ class SplashActivity : AppCompatActivity() {
             MediaStore.Images.ImageColumns.DATE_TAKEN,
             MediaStore.Images.ImageColumns.DATA)
 
-        cursor = activity.contentResolver.query(uri, projection, BUCKET_GROUP_BY, null, BUCKET_ORDER_BY)
+        cursor = activity.contentResolver.query(uri, projection, BUCKET_GROUP_BY, null, BUCKET_ORDER_BY)!!
 
         if (cursor != null) {
             column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)
@@ -109,7 +109,7 @@ class SplashActivity : AppCompatActivity() {
                 val selection = MediaStore.Images.Media.DATA + " like ? "
                 val projectionOnlyBucket = arrayOf(MediaStore.MediaColumns.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
 
-                cursorBucket = activity.contentResolver.query(uri, projectionOnlyBucket, selection, selectionArgs, null)
+                cursorBucket = activity.contentResolver.query(uri, projectionOnlyBucket, selection, selectionArgs, null)!!
                 Log.d("title_apps", "bucket size:" + cursorBucket.count)
 
                 if (absolutePathOfImage != "" && absolutePathOfImage != null) {

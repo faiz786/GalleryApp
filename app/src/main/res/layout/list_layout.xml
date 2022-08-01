@@ -9,9 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/five_dp"
+        android:layout_margin="5dp"
         android:elevation="3dp"
-        card_view:cardCornerRadius="@dimen/zero_dp">
+        card_view:cardCornerRadius="0dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/album_cover_height"
+                android:layout_height="40dp"
                 android:scaleType="centerCrop" />
 
             <TextView
@@ -29,12 +29,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/thumbnail"
-                android:paddingLeft="@dimen/ten_dp"
-                android:paddingRight="@dimen/ten_dp"
-                android:paddingTop="@dimen/ten_dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
                 android:text="Camera"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/fifteen_dp" />
+                android:textSize="15dp" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -45,11 +44,10 @@
                     android:id="@+id/photoCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/five_dp"
-                    android:paddingLeft="@dimen/ten_dp"
-                    android:paddingRight="@dimen/six_dp"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/twelve_dp" />
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="6dp"
+                    android:textSize="12dp" />
             </RelativeLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

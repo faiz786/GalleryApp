@@ -15,7 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_album.*
 
-class AlbumActivity : AppCompatActivity() {
+class AlbumActivity : AppCompatActivity(),IOnItemClick {
 
     var adapter: SingleAlbumAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,8 @@ class AlbumActivity : AppCompatActivity() {
     private fun init_ui_views(folderName: String?, isVideo: Boolean?) {
 
         val options = RequestOptions()
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE).override(160, 160).skipMemoryCache(true).error(R.drawable.ic_image_unavailable)
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE).override(160, 160).skipMemoryCache(true)
+//            .error(R.drawable.ic_image_unavailable)
         val glide = Glide.with(this)
         val builder = glide.asBitmap()
 
@@ -44,20 +45,20 @@ class AlbumActivity : AppCompatActivity() {
         adapter = SingleAlbumAdapter(getAllShownImagesPath(this, folderName, isVideo), this, options, builder, glide, this)
         rvAlbumSelected?.adapter = adapter
 
-        rvAlbumSelected?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-            }
-
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                when (newState) {
-                    RecyclerView.SCROLL_STATE_IDLE -> glide.resumeRequests()
-                    AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL, AbsListView.OnScrollListener.SCROLL_STATE_FLING -> glide.pauseRequests()
-                }
-            }
-        }
-        )
+//        rvAlbumSelected?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//            }
+//
+//            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+//                super.onScrollStateChanged(recyclerView, newState)
+//                when (newState) {
+//                    RecyclerView.SCROLL_STATE_IDLE -> glide.resumeRequests()
+//                    AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL, AbsListView.OnScrollListener.SCROLL_STATE_FLING -> glide.pauseRequests()
+//                }
+//            }
+//        }
+//        )
     }
 
 // Read all images path from specified directory.
@@ -90,7 +91,7 @@ class AlbumActivity : AppCompatActivity() {
     }
 
     override fun onItemClick(position: String, isVideo: Boolean) {
-        val intent = Intent(this, PhotoActivity::class.java)
+        val intent = Intent(this, SingleActivity::class.java)
         intent.putExtra("folder_name", position)
         startActivity(intent)
     }

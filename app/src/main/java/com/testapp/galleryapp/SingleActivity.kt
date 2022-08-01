@@ -20,13 +20,13 @@ class SingleActivity : AppCompatActivity() {
         val folder_name = intent.getStringExtra("folder_name")
         Glide.with(this).load(folder_name).into(imageFullScreenView)
 
-        Handler().postDelayed(Runnable
-        {
-            if (supportActionBar != null)
-                appbar.animate().translationY(-appbar.bottom.toFloat()).setInterpolator(
-                    AccelerateInterpolator()
-                ).start()
-            isAppBarShown = false
-        }, 1500)
+//        Handler().postDelayed(Runnable
+//        {
+//            if (supportActionBar != null)
+//                appbar.animate().translationY(-appbar.bottom.toFloat()).setInterpolator(
+//                    AccelerateInterpolator()
+//                ).start()
+//            isAppBarShown = false
+//        }, 1500)
     }
 }

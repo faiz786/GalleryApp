@@ -9,9 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/five_dp"
+        android:layout_margin="5dp"
         android:elevation="3dp"
-        card_view:cardCornerRadius="@dimen/zero_dp">
+        card_view:cardCornerRadius="0dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/thumbnail"
-                android:layout_width="@dimen/album_cover_height"
-                android:layout_height="@dimen/album_cover_height"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:scaleType="centerCrop" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
